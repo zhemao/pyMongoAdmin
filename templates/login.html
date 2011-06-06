@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Login to Mongoose{% endblock %}
+{% block body %}
+
+{% if error %}
+<p id="error">{{error}}</p>
+{% endif %}
+
+<div id="login">
+	<form action="/login" method="post">
+		<input type="hidden" name="redirect" value="{{redirect}}"/>
+		<p>Username: <input type="text" name="username"/></p>
+		<p>Password: <input type="password" name="password"/></p>
+		<p><input type="submit" value="Submit"/></p>
+	</form>
+</div>
+{% endblock %}

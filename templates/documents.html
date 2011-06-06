@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Documents in {{coll}}{% endblock %}
+{% block body %}
+<h1>Documents in {{coll}}</h1>
+{% if documents %}
+<table>
+<tr><th>id</th><th>contents</th></tr>
+{% for doc in documents %}
+<tr>
+	<td><a href="/db/{{db}}/coll/{{coll}}/doc/{{doc['_id']}}">{{doc['_id']}}</a></td>
+	<td>{{encode(doc)}}</td>
+	<td><a href="/db/{{db}}/coll/{{coll}}/doc/{{doc['_id']}}/delete">delete</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+<p><a href="/db/{{db}}/coll/{{coll}}/doc/new">Create new document</a></p>
+<p><a href="/db/{{db}}/coll/{{coll}}/delete" onclick="return makeSure();">Delete this collection</a></p>
+<p><a href="/">All databases</a></p>
+<p><a href="/db/{{db}}">All collections</a></p>
+{% endblock %}

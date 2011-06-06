@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Collections in {{db}}{% endblock %}
+{% block body %}
+<h1>Collections in {{db}}</h1>
+{% if collections %}
+<ul>
+{% for coll in collections %}
+	<li><a href="/db/{{db}}/coll/{{coll}}">{{coll}}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+<h2>Add new Document</h2>
+<form onsubmit="return newDocument(this);">
+<input type="hidden" name="db" value="{{db}}"/>
+<p>Collection: <input type="text" name="coll"/></p>
+<p><input type="submit" value="Create"/></p>
+</form>
+<p><a href="/db/{{db}}/delete" onclick="return makeSure();">Delete this database</a></p>
+<p><a href="/">All databases</a></p>
+{% endblock %}

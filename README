@@ -1,0 +1,18 @@
+Mongoose
+=========
+
+A simple, pythonic admin interface for MongoDB.
+
+Installation instructions:
+
+Mongoose depends on two python libraries, flask and pymongo. 
+Install these in whichever way you prefer before continuing with the installation 
+process. After flask and pymongo are installed, run the install.py script from the 
+command line. The script will ask you to input some information. Afterwards, the 
+installation is complete, and you can run mongoose by executing mongoose.py. 
+
+Note: Mongoose is only meant to be used to manage MongoDB instances running in
+a trusted environment.
+
+User guide is available in doc/manual.md. You can also read it in the application
+by going to /doc/manual.

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Document {{oid}}{% endblock %}
+{% block init %}
+{{super()}}
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/edit.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#addrow").hide();
+});
+</script>
+{% endblock %}
+{% block body %}
+<h1>Document {{oid}}</h1>
+{% if doc!=None %}
+<form action="" method="post" id="edit">
+<table>
+{% for key,val in doc.items() %}
+	<tr id="tr_{{key}}"><td>{{key}}: </td>
+	<td><input type="text" name="{{key}}" value="{{encode(val)}}"/></td>
+	{% if key!='_id' %}
+		<td><button onclick="return deleteRow({{key}});">Delete item</button></td>
+	{% endif %}
+	</tr>
+{% endfor %}
+	<tr id="submitrow">
+	<td><input type="submit" value="Save"/></td>
+	{% if doc %}
+	<td><button onclick="window.location='/db/{{db}}/coll/{{coll}}/doc/{{oid}}/delete'; return false;">Delete</button></td>
+	{% endif %}
+	</tr>
+</table>
+</form>
+<button onclick="showAddRow();">Add new item</button>
+<form action="nowhere" onsubmit="return addRow(this);" id="addrow">
+<p>Key: <input type="text" name="key"/></p>
+<p>Value: </p>
+<p><textarea name="value" rows="5"></textarea></p>
+<p><input type="submit" value="Add"/><button onclick="return hideAddRow();">Cancel</button></p>
+</form>
+{% else %}
+	<p>Sorry, no document matching your query could be found</p>
+{% endif %}
+<p><a href="/">All databases</a></p>
+<p><a href="/db/{{db}}">All collections</a></p>
+<p><a href="/db/{{db}}/coll/{{coll}}">All documents</a></p>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Mongoose{% endblock %}
+{% block body %}
+<h1>Databases</h1>
+{% if databases %}
+<ul>
+{% for db in databases %}
+	<li><a href="/db/{{db}}">{{db}}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
+<h2>Add new Document</h2>
+<form onsubmit="return newDocument(this);">
+<p>
+Database: <input type="text" name="db"/>
+Collection: <input type="text" name="coll"/>
+</p>
+<p><input type="submit" value="Create"/></p>
+</form>
+{% endblock %}
