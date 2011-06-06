@@ -1,5 +1,5 @@
 import sys
 
-sys.path.append('/path/to/mongoose')
+sys.path.append('/path/to/anaconda')
 
-from mongoose import app as application
+from anaconda import app as application

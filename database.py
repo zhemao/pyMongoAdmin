@@ -5,16 +5,16 @@ import settings
 conn = Connection(settings.HOST, settings.PORT)
 
 def get_user(username):
-	db = conn.mongoose
+	db = conn.anaconda
 	return db.users.find_one({'username':username})
 	
 def create_user(username, password):
-	db = conn.mongoose
+	db = conn.anaconda
 	password = hashlib.sha256(password).hexdigest()
 	db.users.insert({'username':username, 'password':password})
 	
 def change_password(username, password):
-	db = conn.mongoose
+	db = conn.anaconda
 	password = hashlib.sha256(password).hexdigest()
 	db.users.find_and_modify({'username':username}, {'password':password},True)
 	
