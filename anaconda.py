@@ -80,8 +80,9 @@ def delete_db(db):
 	conn.drop_database(db)
 	return redirect('/')
 	
+@app.route('/doc/')
 @app.route('/doc/<name>')
-def documentation(name):
+def documentation(name='index'):
 	body = get_documentation(name)
 	return render_template('userdocs.html', body=body)
 

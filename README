@@ -14,5 +14,5 @@ installation is complete, and you can run anaconda by executing anaconda.py.
 Note: Anaconda is only meant to be used to manage MongoDB instances running in
 a trusted environment.
 
-User guide is available in doc/manual.md. You can also read it in the application
-by going to /doc/manual.
+User guide is available in doc/. You can also read it in the application
+by going to /doc/.

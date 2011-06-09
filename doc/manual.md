@@ -31,7 +31,3 @@ These methods are available for your use to make entering in data easier
  
 You can also use any methods in the datetime and math libraries.
 
-## Contact me
-
-If you have any other questions about anaconda that this documentation doesn't 
-address, please send any queries to the author at zhehao.mao@gmail.com.
