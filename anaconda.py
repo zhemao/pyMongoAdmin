@@ -41,12 +41,12 @@ def collections(db):
 @app.route('/db/<db>/coll/<coll>')
 @login_required
 def documents(db, coll):
-	if 'q' in request.args:
+	if 'q' in request.args and request.args['q']:
 		q = safe_eval(request.args['q'])
 	else: q = {}
 	documents = conn[db][coll].find(q)
 	return render_template('documents.html', documents=documents, 
-			db=db, coll=coll, encode=encode)
+			db=db, coll=coll, encode=encode, query=q)
 			
 @app.route('/db/<db>/coll/<coll>/doc/<oid>',methods=['GET','POST'])
 @login_required

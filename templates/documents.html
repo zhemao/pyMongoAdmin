@@ -2,7 +2,7 @@
 {% block title %}Documents in {{coll}}{% endblock %}
 {% block body %}
 <h1>Documents in {{coll}}</h1>
-{% if documents %}
+{% if documents.count() > 0 %}
 <table>
 <tr><th>id</th><th>contents</th></tr>
 {% for doc in documents %}
@@ -13,7 +13,19 @@
 </tr>
 {% endfor %}
 </table>
+{% else %}
+<p>No documents found.</p>
 {% endif %}
+<form action="">
+<p>Query collection: 
+{% if query %}
+<input type="text" name="q" value="{{query}}"/>
+{% else %}
+<input type="text" name="q"/>
+{% endif %}
+<input type="submit" value="Query"/>
+</p>
+</form>
 <p><a href="/db/{{db}}/coll/{{coll}}/doc/new">Create new document</a></p>
 <p><a href="/db/{{db}}/coll/{{coll}}/delete" onclick="return makeSure();">Delete this collection</a></p>
 <p><a href="/">All databases</a></p>
