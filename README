@@ -9,7 +9,7 @@ pyMongoAdmin depends on two python libraries, flask and pymongo.
 Install these in whichever way you prefer before continuing with the installation 
 process. After flask and pymongo are installed, run the install.py script from the 
 command line. The script will ask you to input some information. Afterwards, the 
-installation is complete, and you can run pyMongoAdmin by executing pyMongoAdmin.py. 
+installation is complete, and you can run pyMongoAdmin by executing mongoadmin.py. 
 
 Note: pyMongoAdmin is only meant to be used to manage MongoDB instances running in
 a trusted environment.
