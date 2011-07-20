@@ -1,5 +1,5 @@
 import sys
 
-sys.path.append('/path/to/anaconda')
+sys.path.append('/path/to/pyMongoAdmin')
 
-from anaconda import app as application
+from mongoadmin import app as application

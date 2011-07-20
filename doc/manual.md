@@ -1,8 +1,8 @@
-# Anaconda Users' Manual
+# pyMongoAdmin Users' Manual
 
 ## Entering Data
 
-Anaconda is written in python, and so the items in each document are entered
+pyMongoAdmin is written in python, and so the items in each document are entered
 in python syntax.
 
 ### Datatypes
@@ -25,7 +25,7 @@ The following datatypes can be entered into document items
 These methods are available for your use to make entering in data easier
 
  * now() - Get the current datetime.
- * sha256(plain) - Converts the plaintext `plain` into its sha256 hash. This is the hash function used by anaconda to store user passwords.
+ * sha256(plain) - Converts the plaintext `plain` into its sha256 hash. This is the hash function used by pyMongoAdmin to store user passwords.
  * sha1(plain) - Converts the plaintext `plain` into its sha1 hash. 
  * md5(plain) - Converts the plaintext `plain` into its md5 hash.
  

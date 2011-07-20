@@ -17,7 +17,7 @@ if __name__ == '__main__':
 		f.write('SECRET_KEY='+repr(secret_key)+'\n')
 		f.write('BASE_DIR='+repr(base_dir)+'\n')
 	conn = Connection(host, port)
-	user = conn.anaconda.users.find_one()
+	user = conn.pymongoadmin.users.find_one()
 	if not user:
 		print('You do not yet have a user in the database. Would you like to add one now? [y/n]')
 		if raw_input() == 'y':
@@ -28,7 +28,7 @@ if __name__ == '__main__':
 				print('Those passwords don\'t match, please try again.')
 				password = raw_input('Password: ')
 				confirm = raw_input('Confirm Password: ')
-			db = conn.anaconda
+			db = conn.pymongoadmin
 			password = hashlib.sha256(password).hexdigest()
 			db.users.insert({'username':username, 'password':password})
 	print('Finished installation')
